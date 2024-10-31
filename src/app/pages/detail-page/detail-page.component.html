@@ -1,0 +1,11 @@
+<div class="d-flex w-100 justify-content-center">
+    <div class="text-center">
+        <div class="box-pict" *ngIf="dataShow?.file">
+            <img class="w-100" src="data:image/JPEG;base64,{{dataShow.file?.data}}">
+        </div>
+        <h3>Nama Member</h3>
+        <h5>{{dataShow?.name}}</h5>
+        <h3>Posisi</h3>
+        <h5>{{dataShow?.position}}</h5>
+    </div>
+</div>

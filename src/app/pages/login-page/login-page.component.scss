@@ -1,0 +1,15 @@
+.border-apps{
+    border: 5px solid black;
+    border-radius: 1rem;
+    overflow-x: hidden;
+}
+
+.animation-section{
+    transition: 0.3s all;
+    width: 0%;
+    overflow-x: hidden;
+}
+
+.animation-section.active{
+    width: 100%;
+}

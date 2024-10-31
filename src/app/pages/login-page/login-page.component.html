@@ -1,0 +1,135 @@
+<div class="position-absolute d-flex w-100 h-100">
+  <section
+    [ngClass]="sectionName == 'login' ? 'active' : ''"
+    class="animation-section d-flex justify-content-center align-items-center"
+  >
+    <div class="border-apps col-md-6 p-md-3 col-11 p-1">
+      <h1 class="text-center pb-2 mb-0">Login User</h1>
+      <form [formGroup]="loginForm" (submit)="submitLogin()">
+        <div class="d-md-flex align-items-center">
+          <div class="col-md-4 col-12">
+            <div>Username</div>
+          </div>
+          <div class="col-md-8 col-12">
+            <input
+              class="w-100"
+              type="text"
+              formControlName="username"
+              placeholder="Username"
+            />
+          </div>
+        </div>
+        <div class="d-md-flex align-items-center pt-2">
+          <div class="col-md-4 col-12">
+            <div>Password</div>
+          </div>
+          <div class="col-md-8 col-12">
+            <input
+              class="w-100"
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <div class="d-flex justify-content-between pt-3">
+          <div>
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="changeSection('register')"
+            >
+              Register
+            </button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-secondary">Google</button>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section
+    [ngClass]="sectionName == 'register' ? 'active' : ''"
+    class="animation-section d-flex justify-content-center align-items-center"
+  >
+    <div class="border-apps col-md-6 p-md-3 col-11 p-1">
+      <h1 class="text-center">Register User</h1>
+      <form [formGroup]="registerForm" (submit)="submitRegister()">
+        <div class="d-md-flex align-items-center">
+          <div class="col-md-4 col-12">
+            <div>Username</div>
+          </div>
+          <div class="col-md-8 col-12">
+            <input
+              class="w-100"
+              type="text"
+              formControlName="username"
+              placeholder="Username"
+            />
+          </div>
+        </div>
+        <div class="d-md-flex align-items-center pt-2">
+          <div class="col-md-4 col-12">
+            <div>Email</div>
+          </div>
+          <div class="col-md-8 col-12">
+            <input
+              class="w-100"
+              type="email"
+              formControlName="email"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+        <div class="d-md-flex align-items-center pt-2">
+          <div class="col-md-4 col-12">
+            <div>Password</div>
+          </div>
+          <div class="col-md-8 col-12">
+            <input
+              class="w-100"
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <div class="d-md-flex align-items-center pt-2">
+          <div class="col-md-4 col-12">
+            <div>Confirm Password</div>
+          </div>
+          <div class="col-md-8 col-12">
+            <input
+              class="w-100"
+              type="password"
+              formControlName="confirmPassword"
+              placeholder="Retype Password"
+            />
+          </div>
+        </div>
+        <div class="d-flex justify-content-between pt-3">
+          <div>
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="changeSection('login')"
+            >
+              Login
+            </button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-secondary">Google</button>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

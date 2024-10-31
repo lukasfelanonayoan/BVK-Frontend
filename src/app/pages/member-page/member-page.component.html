@@ -1,0 +1,36 @@
+<div class="w-100 d-flex justify-content-center py-3">
+  <form
+    class="col-md-6 col-11"
+    [formGroup]="memberForm"
+    (submit)="submitMember()"
+  >
+    <h1 class="text-center">Form Member</h1>
+    <div class="pt-md-4 pt-3 d-md-flex justify-content-between">
+      <div class="pe-3 col-md-4 col-12">Nama Lengkap</div>
+      <div class="col-md-8 col-12">
+        <input class="w-100" type="text" formControlName="name" />
+      </div>
+    </div>
+    <div class="pt-md-4 pt-3 d-md-flex justify-content-between">
+      <div class="pe-3 col-md-4 col-12">Position</div>
+      <div class="col-md-8 col-12">
+        <input class="w-100" type="text" formControlName="position" />
+      </div>
+    </div>
+    <div class="pt-md-4 pt-3 d-md-flex justify-content-between">
+      <div class="pe-3 col-md-4 col-12">Foto Profile</div>
+      <div class="col-md-8 col-12">
+        <input
+          class="w-100"
+          (change)="onFileSelected($event)"
+          type="file"
+          accept="image/png, image/gif, image/jpeg"
+        />
+      </div>
+    </div>
+    <div class="d-flex pt-md-4 pt-3 w-100 justify-content-between">
+      <div><a routerLink="/member" class="btn btn-danger">Cancel</a></div>
+      <div><button type="submit" class="btn btn-primary">Submit</button></div>
+    </div>
+  </form>
+</div>

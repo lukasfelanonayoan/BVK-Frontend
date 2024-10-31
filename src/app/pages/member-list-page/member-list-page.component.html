@@ -1,0 +1,115 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="p-md-4 p-3">
+      <div class="w-100 d-md-flex justify-content-between">
+        <div class="d-md-block d-flex justify-content-center">
+          <a class="btn btn-primary" routerLink="add">Add Member</a>
+        </div>
+        <div class="d-md-flex align-items-center pt-md-0 pt-3">
+          <div class="pe-md-3 d-md-block d-flex justify-content-center">
+            <select class="input rounded p-2" [formControl]="inputType">
+              <option value="name" selected>Name</option>
+              <option value="position">Position</option>
+              <option value="createUser">Created By</option>
+            </select>
+          </div>
+          <div class="d-md-block d-flex justify-content-center pt-md-0 pt-2">
+            <input
+              class="input rounded py-1 px-2"
+              type="text"
+              [formControl]="inputSearch"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 pt-3 overflow-mobile">
+        <table class="w-100 text-center table-view">
+          <thead>
+            <th>Name Member</th>
+            <th>Position</th>
+            <th>Created By User</th>
+            <th>Action</th>
+          </thead>
+          <tbody>
+            <ng-container *ngIf="listShow.length > 0; else format_empty">
+              <tr *ngFor="let data of listShow">
+                <td class="py-2">{{ data.name }}</td>
+                <td class="py-2">{{ data.position }}</td>
+                <td class="py-2">{{ data.createUser }}</td>
+                <td class="py-2">
+                  <div class="d-flex justify-content-center">
+                    <div class="pe-2">
+                      <a routerLink="detail/{{ data.id }}" class="btn btn-primary"
+                        >View</a
+                      >
+                    </div>
+                    <div class="pe-2">
+                      <button class="btn btn-primary">Edit</button>
+                    </div>
+                    <div>
+                      <button class="btn btn-primary">Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+            <ng-template #format_empty>
+              <tr>
+                <td colspan="5" class="text-center">Member Not Exist</td>
+              </tr>
+            </ng-template>
+          </tbody>
+        </table>
+        
+      </div>
+
+      <div class="col-12">
+        <div
+          *ngIf="listShow.length > 0"
+          class="d-flex justify-content-md-end justify-content-center pt-3"
+        >
+          <div class="d-flex">
+            <ng-container *ngIf="page != 0">
+              <ng-container
+                *ngFor="let data of [].constructor(2); let i = index"
+              >
+                <div class="pe-2" *ngIf="page + 1 - (2 - i) > 0">
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    (click)="changePage(page - (2 - i))"
+                  >
+                    {{ page + 1 - (2 - i) }}
+                  </button>
+                </div>
+              </ng-container>
+            </ng-container>
+
+            <div>
+              <button class="btn btn-success" type="button">
+                {{ page + 1 }}
+              </button>
+            </div>
+
+            <ng-container *ngIf="page != maxPage - 1">
+              <ng-container
+                *ngFor="let data of [].constructor(2); let i = index"
+              >
+                <div class="ps-2" *ngIf="page + (i + 1) < maxPage">
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    (click)="changePage(page + 1 + i)"
+                  >
+                    {{ page + 1 + (i + 1) }}
+                  </button>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
